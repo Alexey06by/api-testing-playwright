@@ -1,0 +1,10 @@
+node_modules
+package-lock.json
+e2e
+tests-examples
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
