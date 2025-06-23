@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Alexey06by/api-testing-playwright.git"
@@ -15,5 +13,12 @@
   "bugs": {
     "url": "https://github.com/Alexey06by/api-testing-playwright/issues"
   },
-  "homepage": "https://github.com/Alexey06by/api-testing-playwright#readme"
+  "homepage": "https://github.com/Alexey06by/api-testing-playwright#readme",
+  "dependencies": {
+    "playwright": "^1.53.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.53.1",
+    "@types/node": "^24.0.3"
+  }
 }
