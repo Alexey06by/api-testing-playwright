@@ -17,3 +17,39 @@ test('Should get posts', async() => {
     }
 });
 
+test('Should get single post', async() => {
+    const context = await request.newContext({
+        baseURL: 'https://jsonplaceholder.typicode.com',
+    });
+
+    const response = await context.get('/posts/1');
+    expect(response.status()).toBe(200);
+
+    const body = await response.json();
+    expect(body).toHaveProperty('userId');
+    expect(body).toHaveProperty('id');
+    expect(body).toHaveProperty('title');
+    expect(body).toHaveProperty('body');     
+});
+
+test('Should create post', async() => {
+    const context = await request.newContext({
+        baseURL: 'https://jsonplaceholder.typicode.com',
+    });
+    const reqBody = {
+        title: 'foo',
+        body: 'bar',
+        userId: 1,
+    };
+
+    const response = await context.post('/posts', reqBody);
+    expect(response.status()).toBe(201);  
+    
+    const body = await response.json();
+    expect(body).toHaveProperty('userId');
+    expect(body).toHaveProperty('id');
+    expect(body).toHaveProperty('title');
+    expect(body).toHaveProperty('body');    
+});
+
+
