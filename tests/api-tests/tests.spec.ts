@@ -42,7 +42,9 @@ test('Should create post', async() => {
         userId: 1,
     };
 
-    const response = await context.post('/posts', reqBody);
+    const response = await context.post('/posts', {
+        data: reqBody
+    });
     expect(response.status()).toBe(201);  
     
     const body = await response.json();
