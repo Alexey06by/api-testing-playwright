@@ -1,8 +1,10 @@
-import { test, expect, request} from '@playwright/test'
+import { test, expect, request} from '@playwright/test';
+import dotenv from 'dotenv';
+dotenv.config();
 
 test('Should get posts', async() => {
     const context = await request.newContext({
-        baseURL: 'https://jsonplaceholder.typicode.com',
+        baseURL: process.env.BASE_URL,
     });
 
     const response = await context.get('/posts');
@@ -19,7 +21,7 @@ test('Should get posts', async() => {
 
 test('Should get single post', async() => {
     const context = await request.newContext({
-        baseURL: 'https://jsonplaceholder.typicode.com',
+        baseURL: process.env.BASE_URL,
     });
 
     const response = await context.get('/posts/1');
@@ -34,7 +36,7 @@ test('Should get single post', async() => {
 
 test('Should create post', async() => {
     const context = await request.newContext({
-        baseURL: 'https://jsonplaceholder.typicode.com',
+        baseURL: process.env.BASE_URL,
     });
     const reqBody = {
         title: 'foo',
